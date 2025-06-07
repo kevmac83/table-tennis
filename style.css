@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif; /* Consistent font */
+}
+
+#gameContainer {
+    width: 90vmin; /* Use viewport units for responsiveness */
+    height: 60vmin; /* Maintain aspect ratio */
+    max-width: 800px; /* Max size for larger screens */
+    max-height: 533px;
+    background-color: #000;
+    position: relative;
+    border: 5px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Add some depth */
+    overflow: hidden; /* Ensure ball doesn't visually escape container during fast moves */
+}
+
+.paddle {
+    width: 1.5vmin; /* Responsive paddle width */
+    height: 15vmin; /* Responsive paddle height */
+    min-width: 8px; /* Minimum paddle width */
+    min-height: 60px; /* Minimum paddle height */
+    background-color: #fff;
+    position: absolute;
+    box-shadow: 0 0 5px rgba(255,255,255,0.7); /* Glow effect */
+}
+
+#playerPaddle {
+    left: 2vmin; /* Position based on viewport width */
+    /* top is set by JS */
+}
+
+#opponentPaddle {
+    right: 2vmin; /* Position based on viewport width */
+    /* top is set by JS */
+}
+
+#ball {
+    width: 2vmin;  /* Responsive ball size */
+    height: 2vmin; /* Responsive ball size */
+    min-width: 10px; /* Minimum ball size */
+    min-height: 10px; /* Minimum ball size */
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 8px rgba(255,255,255,0.8); /* Brighter glow for ball */
+    /* top and left are set by JS */
+}
+
+#scores {
+    position: absolute;
+    top: 20px; /* Increased top margin */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 3vmin; /* Responsive font size */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Text shadow for readability */
+}
+
+#playerScore {
+    margin-right: 30px; /* Increased spacing */
+}
+
+#opponentScore {
+    margin-left: 30px; /* Increased spacing */
+}
+
+/* Basic media query for very small screens */
+@media (max-width: 400px) {
+    #gameContainer {
+        border-width: 3px;
+    }
+    #scores {
+        font-size: 5vmin; /* Larger font for scores on small screens */
+        top: 10px;
+    }
+    .paddle {
+        min-width: 6px;
+        min-height: 40px;
+    }
+    #ball {
+        min-width: 8px;
+        min-height: 8px;
+    }
+}
